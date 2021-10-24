@@ -4,7 +4,7 @@ import vm, { Response } from 'virtual_modules';
 
 const dirname = path.dirname(__dirname);
 const modules = path.dirname(dirname);
-const module = vm.resolveModule('boxicons', modules);
+const iconModule = vm.resolveModule('boxicons', modules);
 const handle = (filename: string, res: Response) => {  
   //wait for .js so babel can parse it
   if (!/\.js$/.test(filename) || res.body) {
@@ -22,7 +22,7 @@ const handle = (filename: string, res: Response) => {
   let svg = null;
   try {
     svg = fs.readFileSync(
-      `${module}/svg/${type}/${prefix}-${name.toLowerCase()}.svg`
+      `${iconModule}/svg/${type}/${prefix}-${name.toLowerCase()}.svg`
     ).toString('utf8');
   } catch (e) {
     return;
@@ -43,9 +43,9 @@ const handle = (filename: string, res: Response) => {
 //default
 vm.route(`${dirname}/icons/:type/:name`, handle);
 //any node modules
-vm.route(`/**/node_modules/@inceptjs/icons/:type/:name`, handle);
+vm.route(`/**/node_modules/react-boxicons/:type/:name`, handle);
 //monno repo
-vm.route(`/**/incept.js/packages/icons/:type/:name`, handle);
+vm.route(`/**/react-boxicons/:type/:name`, handle);
 //patch the FS
 vm.patchFS();
 
