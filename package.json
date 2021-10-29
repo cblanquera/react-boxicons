@@ -1,6 +1,6 @@
 {
   "name": "react-boxicons",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "Virtual React BoxIcons",
   "author": "Chris <chris@incept.asia>",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "./src"
   ],
   "dependencies": {
-    "virtual_modules": "^0.0.28",
+    "virtual_modules": "^0.0.29",
     "boxicons": "2.0.9"
   },
   "devDependencies": {
